@@ -46,3 +46,18 @@ add_action('init', function() {
         ]
     );
 });
+
+
+/* 
+$args = [
+    ... vos arguments,
+    'meta_query' => [
+        [
+            'key' => 'votre_clé',
+            'value' => '1',
+        ]
+    ],
+];
+
+
+*/
