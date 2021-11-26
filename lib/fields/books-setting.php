@@ -15,15 +15,31 @@ add_action('init', function() {
     ]);
 
     register_taxonomy(
-        'book-category',
+        'book-genre',
         ['book'], 
         [
             'labels' => [
-                'name' => 'Catégorie d\'évènement',
-                'singular_name' => 'Catégorie d\'évènement',
-                'menu_name' => 'Catégorie d\'évènement'
+                'name' => 'Genre',
+                'singular_name' => 'Genre',
+                'menu_name' => 'Genre'
             ],        
-            'menu_icon' => 'dashicons-calendar',
+            'menu_icon' => 'dashicons-book',
+            'public' => true,
+            'show_admin_column' => true,
+            'hierarchical' => true
+        ]
+    );
+
+    register_taxonomy(
+        'book-age',
+        ['book'], 
+        [
+            'labels' => [
+                'name' => 'Catégorie d\'âge',
+                'singular_name' => 'Catégorie d\'âge',
+                'menu_name' => 'Catégorie d\'âge'
+            ],        
+            'menu_icon' => 'dashicons-age',
             'public' => true,
             'show_admin_column' => true,
             'hierarchical' => true
