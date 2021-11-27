@@ -10,6 +10,7 @@ add_action('init', function() {
         ],        
         'public' => true,
         'has_archive' => true,
+        'menu_icon' => 'dashicons-book',
         'hierarchical' => false,
         'supports' => ['title', 'editor', 'thumbnail']
     ]);
