@@ -48,6 +48,26 @@ add_action('init', function() {
     );
 });
 
+acf_add_options_page([
+    'page_title' => 'Options de la bibliothèque',
+    'menu_title' => 'Options de la bibliothèque',
+    'menu_slug' => 'library-settings',
+]);
+
+add_action('save_post', function($post_id, $post, $update){
+    // Image mise en avant par défaut
+    if(has_post_thumbnail($post)){
+        do_action("save_post/{$post->post_type}/thumbnail", $post_id, $post, $update);
+    }else{
+        do_action("save_post/{$post->post_type}/no_thumbnail", $post_id, $post, $update);
+    }
+}, 10, 3);
+
+add_action('save_post/book/no_thumbnail', function($post_id, $post){
+    if ($default_thumbnail = get_field('default_book_thumbnail', 'options')){
+        set_post_thumbnail($post, $default_thumbnail);
+    }
+}, 10, 2);
 
 /* 
 $args = [
