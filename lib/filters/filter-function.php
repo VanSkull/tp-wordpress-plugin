@@ -32,3 +32,17 @@
         
         return new WP_Query( $args );
     } 
+
+    function books_forward_posts($id = 0){
+    
+        $args = [
+            'post_type' => 'book',
+            //'posts_per_page' => 4,
+            'orderby' => 'date',
+            'order' => 'DESC',            
+            'meta_key'   => 'mis_en_avant_livre',
+            'meta_value' => true
+        ];
+        
+        return new WP_Query( $args );
+    } 
